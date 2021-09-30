@@ -1,0 +1,56 @@
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="row justify-content-md-center">
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Product</h4>
+  </div>
+
+  <!-- Modal body -->
+  <div class="col-md-6">
+    <div class="form-control-row">
+      <label for="example-email-input" class="col-md-4 col-form-label">ID:</label>
+      <div class="col-md-12">
+        <input type="text" class="form-control" id="example-email-input" formControlName="id">
+      </div>
+    </div>
+
+    <div class="form-control-row">
+      <label for="example-email-input" class="col-md-4 col-form-label">Name:</label>
+      <div class="col-md-12">
+        <input type="text" class="form-control" id="example-name-input" formControlName="name">
+      </div>
+    </div>
+
+    <div class="form-control-row">
+      <label for="example-email-input" class="col-md-4 col-form-label">IMG:</label>
+      <div class="col-md-12">
+        <input type="text" class="form-control" id="example-img-input" formControlName="img">
+      </div>
+    </div>
+
+
+    <div class="form-control-row">
+      <label for="example-email-input" class="col-md-4 col-form-label">Price:</label>
+      <div class="col-md-12">
+        <input type="text" class="form-control" id="example-price-input" formControlName="price">
+      </div>
+    </div>
+
+
+    <div class="form-control-row">
+      <label for="example-email-input" class="col-md-4 col-form-label">Status:</label>
+      <div class="col-md-12">
+        <select type="text" class="form-control" id="example-status-input" formControlName="status">
+          <option [value]="true">Còn hàng</option>
+          <option [value]="false">Hết hàng</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" [disabled]="productForm.invalid" (click)="saveProduct()" class="btn btn-success"
+              data-dismiss="modal">Edit
+      </button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</form>

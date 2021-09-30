@@ -1,0 +1,39 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <h2>Table Product</h2>
+  <p></p>
+  <button type="button" class="btn btn-success" routerLink="/product/create">
+    Create
+  </button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>IMG</th>
+      <th>Status</th>
+      <th>Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let p of products">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td><img src="{{p.img}}" width="300" height="200"></td>
+      <td *ngIf="p.status === true" style="color: blue">Còn hàng</td>
+      <td *ngIf="p.status === false" style="color: red">hết hàng</td>
+      <td>{{p.price}}</td>
+      <td>
+        <button  class="btn btn-secondary" [routerLink]="['/product/edit/', p.id]">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button (click)="deleteProduct(p.id)" type="button" class="btn btn-secondary">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
